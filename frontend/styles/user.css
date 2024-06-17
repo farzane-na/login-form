@@ -1,0 +1,283 @@
+@import url('https://v1.fontapi.ir/css/Shabnam');
+
+:root {
+    --body-color: #F5F5F5;
+    --border: #D9D9D9;
+    --primary-color: #3A5B22;
+    --link-color: #0F3DDE;
+    --font: "Shabnam";
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: var(--body-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font);
+}
+
+.container {
+    margin-top: 5rem;
+    width: 55rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2)), url("../images/plant.png");
+    background-size: cover;
+    background-position: top right;
+    padding: 1rem;
+    box-shadow: 0 0 1rem var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 100%;
+    height: 50rem;
+    overflow-y: auto;
+    padding-left: 0.3rem;
+}
+.wrapper::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+    background-color: #aaa; 
+    border-radius: 1rem;
+}
+.wrapper::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 1rem;
+}
+.user {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    box-shadow: 1px 2px 1rem #757171;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.user__detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.user__image {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user__property {
+    display: flex;
+    flex-direction: column;
+}
+
+.user__name {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.user__email {
+    font-size: 1.3rem;
+    font-weight: lighter;
+}
+
+.user__btns {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+}
+
+.user__btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: var(--font);
+    color: #fff;
+    padding: 0.5rem ;
+    padding-right: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user__update,
+.user__update-btn {
+    background-color: var(--primary-color);
+}
+
+.user__delete,
+.user__delete-btn {
+    background-color: rgb(187, 11, 11);
+}
+.user__update-btn,
+.user__delete-btn{
+    border: none;
+    outline: none;
+    font-family: var(--font);
+    color: #fff;
+    cursor: pointer;
+}
+.fa-pencil,
+.fa-trash{
+    width: 12px;
+}
+
+/*  */
+.modal {
+    position: absolute;
+    inset: 0;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease-in;
+    padding: 0 5rem;
+}
+
+.modal--active {
+    transform: translateY(0);
+}
+
+.delete-modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-modal--active {
+    display: flex;
+}
+
+.delete-modal__text {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.delete-modal__btn-box {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.accept,
+.ignore {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    flex-grow: 1;
+    padding: 0.5rem 0;
+    font-family: var(--font);
+    color: #fff;
+    font-weight: bold;
+}
+
+.accept {
+    background-color: var(--primary-color);
+}
+
+.ignore {
+    background-color: rgb(187, 11, 11);
+}
+
+/*  */
+.update-modal {
+    background-color: var(--body-color);
+    padding: 1.5rem;
+    width: 60rem;
+    box-shadow: 0 0 1rem var(--border);
+    display: none;
+}
+
+.update-modal--active {
+    display: block;
+}
+
+.update-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-form {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.label {
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.input {
+    border: 1px solid var(--border);
+    outline: none;
+    color: #000;
+    font-family: var(--font);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.update-email,
+.update-password {
+    direction: ltr;
+}
+
+.submit-form {
+    width: 100%;
+    padding: 0.5rem;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+    font-family: var(--font);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.massage-update-modal {
+    display: none;
+}
+
+.massage-update-modal--active {
+    display: block;
+}
+
+.massage-text {
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    width: 60rem;
+}
+
+.massage-btn {
+    width: 12rem;
+    color: #fff;
+    font-family: var(--font);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--link-color);
+    cursor: pointer;
+}
