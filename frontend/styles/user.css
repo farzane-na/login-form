@@ -202,6 +202,8 @@ body {
     width: 60rem;
     box-shadow: 0 0 1rem var(--border);
     display: none;
+    border-radius: 1rem;
+    position: relative;
 }
 
 .update-modal--active {
@@ -253,7 +255,19 @@ body {
     cursor: pointer;
     margin-top: 1rem;
 }
-
+.close-update-modal{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-update-modal span{
+    font-size: 2rem;
+    cursor: pointer;
+}
 .massage-update-modal {
     display: none;
 }

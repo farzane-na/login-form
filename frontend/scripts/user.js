@@ -11,9 +11,10 @@ const acceptBtn=$.querySelector(".accept")
 const ignoreBtn=$.querySelector(".ignore")
 const updateModal=$.querySelector(".update-modal")
 const updateForm=$.querySelector(".update-form")
-const updateUsername=$.querySelector(".update-username")
-const updateEmail=$.querySelector(".update-email")
-const updatePassword=$.querySelector(".update-password")
+let updateUsername=$.querySelector(".update-username")
+let updateEmail=$.querySelector(".update-email")
+let updatePassword=$.querySelector(".update-password")
+const closeUpdateModalBtn=$.querySelector(".close-update-modal span")
 const updateSubmitFormBtn=$.querySelector(".submit-form")
 const massageUpdateModal=$.querySelector(".massage-update-modal")
 const massageUpdateText=$.querySelector(".massage-text")
@@ -66,7 +67,7 @@ const creatUserListStructure=data=>{
             <div class="user__btns">
                 <div class="user__btn user__update">
                     <i class="fa fa-pencil"></i>
-                    <button class="user__update-btn" onclick='showMassageUpdate(event)'user-email="${user.email}" >ویرایش</button>
+                    <button class="user__update-btn" onclick='showMassageUpdate(${JSON.stringify(user)})'user-email="${user.email}" >ویرایش</button>
                 </div>
                 <div class="user__btn user__delete">
                     <i class="fa fa-trash"></i>
@@ -106,10 +107,14 @@ const deleteUserHandeler=()=>{
         hideModal()
     })
 }
-const showMassageUpdate=(event)=>{
+const showMassageUpdate=(user)=>{
+    console.log(user);
     showUpdateModal()
     showModal()
-    userOldEmail=event.target.getAttribute("user-email")
+    userOldEmail=user.email
+    updateUsername.value=user.username
+    updateEmail.value=user.email
+    updatePassword.value=user.password
 }
 const updateUserHandeler=()=>{
     if(updateEmail.value.trim()!=="" && updatePassword.value.trim()!=="" && updateUsername.value.trim()!==""){
@@ -170,7 +175,16 @@ updateForm.addEventListener("submit",e=>{
 massageUpdateBtn.addEventListener("click",()=>{
     hideMassageUpdateModal()
 })
-
-
+window.addEventListener("keydown",event=>{
+    console.log(event);
+    if(event.key==="Escape"){
+        hideUpdateModal()
+        hideModal()
+    }
+})
+closeUpdateModalBtn.addEventListener("click",()=>{
+    hideUpdateModal()
+    hideModal()
+})
 /* <button class="user__btn user__update" onclick='showMassageUpdate(event)'user-email="${user.email}" >ویرایش</button>
 <button class="user__btn user__delete" onclick='showMassageDelete(event)' user-email="${user.email}">حذف</button> */

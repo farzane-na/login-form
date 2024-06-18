@@ -71,7 +71,7 @@ userRouter.get("/",(req,res)=>{
         if(err){
             console.log("error in connect",err)
         }else{
-            let selectAllUserQuery='SELECT email,username FROM users'
+            let selectAllUserQuery='SELECT email,username,password FROM users'
             connection.query(selectAllUserQuery,(err,result)=>{
                 if(err){
                     console.log("Error => ",err);
